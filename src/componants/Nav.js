@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { CgMenu, CgClose } from "react-icons/cg";
+import { CgMenu, CgClose,CgShoppingCart} from "react-icons/cg";
+import { Button } from '../styles/Button';
 
 const Nav = ()=> {
     const [menuIcon, setMenuIcon] = useState();
@@ -9,7 +10,7 @@ const Nav = ()=> {
     const Nav = styled.nav`
     .navbar-lists {
       display: flex;
-      gap: 4.8rem;
+      gap: 33px;
       align-items: center;
       list-style-type:none;
       .navbar-link {
@@ -17,10 +18,10 @@ const Nav = ()=> {
         &:visited {
           display: inline-block;
           text-decoration: none;
-          font-size: 1.6rem;
-          font-weight: 500;
-          text-transform: uppercase;
-          color: ${({ theme }) => theme.colors.black};
+          font-size: 1.3rem;
+          font-weight: 400;
+          text-transform: capitalize;
+          color: ${({ theme }) => theme.colors.bgnav};
           transition: color 0.3s linear;
         }
         &:hover,
@@ -41,6 +42,13 @@ const Nav = ()=> {
     .close-outline {
       display: none;
     }
+ 
+    .cart-trolly{
+      width:41.71px;
+      height:39px;
+      color:#1A0E4E;
+      cursor:pointer;
+    }
 
 
 
@@ -48,10 +56,10 @@ const Nav = ()=> {
       .mobile-navbar-btn {
         display: inline-block;
         z-index: 9999;
-        border: ${({ theme }) => theme.colors.black};
+        border: ${({ theme }) => theme.colors.bgnav};
         .mobile-nav-icon {
           font-size: 3rem;
-          color: ${({ theme }) => theme.colors.black};
+          color: ${({ theme }) => theme.colors.bgnav};
         }
       }
       .active .mobile-nav-icon {
@@ -60,7 +68,7 @@ const Nav = ()=> {
         position: absolute;
         top: 30%;
         right: 10%;
-        color: ${({ theme }) => theme.colors.black};
+        color: ${({ theme }) => theme.colors.bgnav};
         z-index: 9999;
       }
       .active .close-outline {
@@ -119,6 +127,10 @@ const Nav = ()=> {
           <li>
             <NavLink to="/" className="navbar-link" onClick={()=> setMenuIcon(false)}>icon</NavLink>
           </li>
+          <li>
+            <Button>Log In</Button>
+          </li>
+          <CgShoppingCart name = "cart"  className = "cart-trolly" />
 
         </ul>
 
