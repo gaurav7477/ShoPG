@@ -1,16 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router} from "react-router-dom";
-// import About from "./About";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import About from "./About";
 import Home from "./Home";
 import Products from "./Products";
-// import Contact from "./Contact";
-// import ErrorPage from "./ErrorPage";
-// import SingleProduct from "./SingleProduct";
+import Contact from "./Contact";
+import ErrorPage from "./ErrorPage";
+import SingleProduct from "./SingleProduct";
 import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Header from "./componants/Header";
-import SecondContainer from "./componants/SecondContainer";
 import Item from "./Item";
+import Footer from "./componants/Footer";
 
 const App = () => {
   const theme = {
@@ -38,11 +38,17 @@ const App = () => {
       <Router>
         <GlobalStyle />
         <Header />
-        <Home />
-        <SecondContainer />
-        <Item />
-        <Products />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/singleproduct/:id" element={<SingleProduct />} />
+          <Route path="/item" element={<Item />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
       </Router>
+      <Footer />
     </ThemeProvider>
   );
 };

@@ -119,7 +119,7 @@ const Nav = ()=> {
             <NavLink to="/" className="navbar-link" onClick={()=> setMenuIcon(false)}>about</NavLink>
           </li>
           <li>
-            <NavLink to="/" className="navbar-link" onClick={()=> setMenuIcon(false)}>Contact</NavLink>
+            <NavLink to="/Contact" className="navbar-link" onClick={()=> setMenuIcon(false)}>Contact</NavLink>
           </li>
           <li>
             <NavLink to="/" className="navbar-link" onClick={()=> setMenuIcon(false)}>product</NavLink>
